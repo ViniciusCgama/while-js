@@ -1,5 +1,6 @@
 let n = [2, 4, 3, 1, 9, 8, 10, -1];
 let maiorNum, menorNum, i = 0, j = n;
+let swapped = true;
 
 maiorNum = menorNum = n[0];
 
@@ -16,26 +17,18 @@ while (true) {
   }
 }
 
-for (let i = 0; i < n.length; i++) {
-    for (let j = i + 1; j < n.length; j++) {
-      if (n[i] > n[j]) {
-        let temp = n[i];
-        n[i] = n[j];
-        n[j] = temp;
-      }
+while (swapped) {
+  swapped = false;
+  for (let i = 0; i < n.length - 1; i++) {
+    if (n[i] > n[i + 1]) {
+      let temp = n[i];
+      n[i] = n[i + 1];
+      n[i + 1] = temp;
+      swapped = true;
     }
-}
-
-while (i<n.length) {
-  if (n[i] > n[i + 1]) {
-    const temp = n[i];
-    n[i] = n[i + 1];
-    n[i + 1] = temp;
-    i = 0;
-  }else{
-    i++
   }
 }
+
 
 console.log("O maior número é: " + maiorNum);
 console.log("O menor número é: " + menorNum);
